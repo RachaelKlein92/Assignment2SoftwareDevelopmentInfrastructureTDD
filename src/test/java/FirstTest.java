@@ -1,7 +1,7 @@
 import Main.Animals;
 import org.junit.*;
 
-
+//Rachael Klein 218 057 377
 import static org.junit.Assert.*;
 
 
@@ -42,8 +42,8 @@ public class FirstTest  {
         //Object Identity
         Animals animal1 = new Animals();
         Animals animal2 = new Animals();
-        //telling them that they should not equal, if so, this test will pass
-        assertNotEquals(animal1, animal2);
+        //telling them that they should not be the same object in memory, if so, this test will pass
+        assertNotSame(animal1, animal2);
 
     }
 
@@ -54,7 +54,7 @@ public class FirstTest  {
         Animals animal1 = new Animals(2);
         Animals animal2 = animal1;
         //telling them that they should equal
-        assertEquals(animal1, animal2);
+        assertSame(animal1, animal2);
     }
 
     //DisablingTest comes with a added note :P
@@ -67,12 +67,22 @@ public class FirstTest  {
     // Object Equality
     //checks that the object content are equal
     @Test
-    public void objEquals() {
+    public void TwoAnimalsAreEqual_True() {
         Animals animal1 = new Animals();
         Animals animal2 = new Animals();
         //animal2.howManyTimeItEats = 3;
 
-        assertTrue(animal1.equals(animal2));
+        assertEquals(animal1, animal2);
+    }
+
+    // Object Equality
+    //checks that the object content are not equal
+    @Test
+    public void TwoAnimalsAreNotEqual_True() {
+        Animals animal1 = new Animals(2);
+        Animals animal2 = new Animals();
+
+        assertNotEquals(animal1, animal2);
     }
 
 
